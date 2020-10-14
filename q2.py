@@ -13,8 +13,6 @@ def bn(n, x):
  / (x * hn(n - 1, x) - n * hn(n, x))
 
 
-
-
 path = 'results'
 if not os.path.exists(path):
     os.mkdir(path)
@@ -32,14 +30,14 @@ fmax = float(flinelist[3][5:])
 
 
 F = np.linspace(fmin, fmax, num = 1000)
-r = D*0.5 #радиус сферы
+r = D*0.5 
 
 
 L = 3e8 / F
-k = 2 * np.pi / L # волновое число
+k = 2 * np.pi / L 
 Sum_arr = [((-1) ** n) * (n + 0.5) * (an(n, k * r) - bn(n, k * r)) \
  for n in range(1, 50)]
-Sum = np.sum(Sum_arr, axis=0) # считаем "ряд"
+Sum = np.sum(Sum_arr, axis=0) 
 Sigma = (L ** 2) / np.pi * (np.abs(Sum) ** 2) 
   
 
