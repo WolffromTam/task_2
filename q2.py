@@ -5,12 +5,13 @@ import requests
 import scipy.special as sp
 
 def hn(n, x):
-    return sp.jn(n, x) + 1j * sp.yn(n, x)
+    return sp.spherical_jn(n, x) + 1j * sp.spherical_yn(n, x)
 def an(n, x):
-    return sp.jn(n, x) / hn(n, x)
+    return sp.spherical_jn(n, x) / hn(n, x)
 def bn(n, x):
-    return (x * sp.jn(n - 1, x) - n * sp.jn(n, x)) \
+    return (x * sp.spherical_jn(n - 1, x) - n * sp.spherical_jn(n, x)) \
     / (x * hn(n - 1, x) - n * hn(n, x))
+
 
 
 
